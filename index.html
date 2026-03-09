@@ -214,14 +214,14 @@
                     <select id="service" required
                         class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-salon-gold focus:ring-1 focus:ring-salon-gold transition bg-white">
                         <option value="" disabled selected>اختر الخدمة...</option>
-                        <option value="عناية بالأظافر">Gel polish (Nails) 270 l.e</option>
-                        <option value="عناية بالأظافر">Treatmet (Nails) 300 l.e</option>
-                        <option value="عناية بالأظافر">Hard gel (Nails) 370 l.e</option>
-                        <option value="عناية بالأظافر">Gel polish (Toenails) 230 l.e</option>
-                        <option value="الرموش (Lashes)">Classic (Lashes) 350 l.e</option>
-                        <option value="الرموش (Lashes)">Hybird (Lashes) 450 l.e</option>
-                        <option value="الرموش (Lashes)">Voulme (Lashes) 500 l.e</option>
-                        <option value="الميكروبليدنج">(Microblading) 1250 l.e</option>
+                        <option value="Gel polish">Gel polish (Nails) 270 l.e</option>
+                        <option value="Treatmet">Treatmet (Nails) 300 l.e</option>
+                        <option value="Hard gel">Hard gel (Nails) 370 l.e</option>
+                        <option value="Toenails">Gel polish (Toenails) 230 l.e</option>
+                        <option value="Classic (Lashes)">Classic (Lashes) 350 l.e</option>
+                        <option value="Hybird (Lashes)">Hybird (Lashes) 450 l.e</option>
+                        <option value="Voulme (Lashes)">Voulme (Lashes) 500 l.e</option>
+                        <option value="Microblading">(Microblading) 1250 l.e</option>
                     </select>
                 </div>
 
@@ -273,6 +273,7 @@
                 `👤 الاسم: ${name}%0A` +
                 `📅 التاريخ: ${date}%0A` +
                 `⏰ الوقت: ${time}%0A` +
+                ` الخدمة: ${service}%0A` +
                 `📞 رقم التواصل: ${phone}`;
 
             // 4. إنشاء رابط واتساب
@@ -327,5 +328,6 @@
         */
     </script>
 </body>
+
 
 </html>
