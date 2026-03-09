@@ -211,7 +211,7 @@
         <div class="container mx-auto px-6 max-w-2xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-salon-dark">Book now </h2>
-                <p class="text-gray-500 mt-2">املئي البيانات وسيتم تحويلك لتأكيد الحجز عبر واتساب</p>
+                <p class="text-gray-500 mt-2">املئي البيانات وسيتم تحويلك لأختيار الميعاد المناسب </p>
             </div>
 
             <form id="bookingForm" class="bg-salon-nude p-8 rounded-2xl shadow-lg border border-salon-pink">
@@ -246,20 +246,6 @@
                     </select>
                 </div>
 
-                <!-- التاريخ والوقت -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-salon-dark">التاريخ</label>
-                        <input type="date" id="date" required
-                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-salon-gold focus:ring-1 focus:ring-salon-gold transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-salon-dark">الوقت</label>
-                        <input type="time" id="time" required
-                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-salon-gold focus:ring-1 focus:ring-salon-gold transition">
-                    </div>
-                </div>
-
                 <!-- زر الإرسال -->
                 <button type="submit" class="w-full btn-gold py-4 rounded-lg font-bold text-lg shadow-md">
                     تأكيد الحجز.
@@ -287,76 +273,18 @@
         document.getElementById('bookingForm').addEventListener('submit', function (e) {
             e.preventDefault(); // منع إعادة تحميل الصفحة
 
-            // 1. جمع البيانات من النموذج
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
+            // 1. رابط Calendly بتاعك
+            const calendlyUrl = "https://calendly.com/juliageorge628/treatmit";
 
-            // 2. إعداد رقم الواتساب (استبدلي هذا الرقم برقمك الحقيقي)
-            // تأكد من كتابة الرقم مع مفتاح الدولة وبدون + أو مسافات
-            const phoneNumber = "+201050362209";
+            // 2. فتح الرابط في نافذة جديدة
+            window.open(calendlyUrl, '_blank');
 
-            // 3. صياغة الرسالة بشكل احترافي
-            const message = `Hi , ممكن نأكد الحجز*${service}* 🌸%0A%0A` +
-                `👤 الاسم: ${name}%0A` +
-                `📅 التاريخ: ${date}%0A` +
-                `⏰ الوقت: ${time}%0A` +
-                ` الخدمة: ${service}%0A` +
-                `📞 رقم التواصل: ${phone}`;
-
-            // 4. إنشاء رابط واتساب
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-
-            // 5. فتح الرابط في نافذة جديدة
-            window.open(whatsappUrl, '_blank');
-
-            // 6. (اختياري) تنظيف النموذج بعد الإرسال
+            // 3. (اختياري) ممكن تنظيف النموذج بعد الإرسال لو عايزة
             // this.reset();
         });
+</script>
 
-        /*
-        ================================================================
-        ملاحظات للمطورين (Future API Integration):
-        ================================================================
-        لربط هذا النموذج بـ API مثل (Twilio أو Interakt) لإرسال رسائل SMS 
-        أو إشعارات داخلية بدلاً من واتساب، يمكنك استبدال الجزء الخاص 
-        بـ "إنشاء رابط واتساب" بـ كود AJAX/Fetch.
-
-        مثال توضيحي (伪代码) لكيفية الربط مع API:
-
-        async function sendBookingToAPI() {
-            const bookingData = {
-                name: name,
-                phone: phone,
-                service: service,
-                date: date,
-                time: time
-            };
-
-            try {
-                const response = await fetch('https://api.yourdomain.com/bookings', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer YOUR_API_KEY'
-                    },
-                    body: JSON.stringify(bookingData)
-                });
-
-                if (response.ok) {
-                    alert('تم استلام طلبك بنجاح!');
-                    // هنا يمكنك توجيه المستخدم لواتساب كخطوة ثانية
-                    window.open(whatsappUrl, '_blank');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-        ================================================================
-        */
-    </script>
+      
 </body>
 
 
